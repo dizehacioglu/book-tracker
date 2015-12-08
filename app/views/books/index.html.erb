@@ -16,6 +16,7 @@
       <td><%= book.page %></td>
       <td><%= book.description %></td>
       <td><%= link_to 'Show Book', book_path(book) %></td>
+      <td><%= link_to 'Edit', edit_book_path(book) %></td>
     </tr>
   <% end %>
 </table>
