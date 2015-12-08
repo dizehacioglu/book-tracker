@@ -6,6 +6,7 @@
     <th>Author</th>
     <th>Page</th>
     <th>Description</th>
+    <th colspan="2"></th>
   </tr>
  
   <% @books.each do |book| %>
@@ -14,6 +15,7 @@
       <td><%= book.author %></td>
       <td><%= book.page %></td>
       <td><%= book.description %></td>
+      <td><%= link_to 'Show Book', book_path(book) %></td>
     </tr>
   <% end %>
 </table>
