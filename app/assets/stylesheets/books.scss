@@ -5,7 +5,8 @@
 $smoke: #333;
 
 body {
-	padding-bottom: 50px;
+	// padding-bottom: 50px;
+	height: 100%;
 }
 
 footer{
@@ -22,8 +23,12 @@ footer{
 }
 
 .content {
-	height: 100%;
+	min-height: 100%;
 	position: relative;
+}
+
+.partial{
+	padding-bottom: 50px;
 }
 
 .hero{
