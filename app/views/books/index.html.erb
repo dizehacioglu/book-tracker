@@ -1,24 +1,28 @@
-<h1>Books</h1>
+<div class="container">
+		
+	<h1>Your Bookshelf</h1>
+	<hr>
+	
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Author</th>
-    <th>Page</th>
-    <th>Description</th>
-    <th colspan="2"></th>
-  </tr>
- 
-  <% @books.each do |book| %>
-    <tr>
-      <td><%= book.title %></td>
-      <td><%= book.author %></td>
-      <td><%= book.page %></td>
-      <td><%= book.description %></td>
-      <td><%= link_to 'Show Book', book_path(book) %></td>
-      <td><%= link_to 'Edit', edit_book_path(book) %></td>
-    </tr>
-  <% end %>
-</table>
+		<% @books.each_slice(4) do |four_books| %>
+			<div class="row">
+				<% four_books.each do |book| %>
+			    <div class="single-book col-sm-3">
+			     <div class="row delete-button">
+			      <%= link_to '<i class="fa fa-times"></i>'.html_safe, book_path(book),
+			              method: :delete,
+			              data: { confirm: 'Are you sure?' } %>
+			      </div>
+			    	<img class="img-rounded" src="<%= book.cover %>">
+			      <br><%= link_to book.title, book_path(book), :class => "trial" %>
+			      <br><%= book.author %>
 
-<p><%= link_to "Add New Book", new_book_path %>
+			    </div>
+		    <% end %>
+	    </div>
+	  <% end %>
+
+	
+
+
+</div>

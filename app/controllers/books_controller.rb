@@ -17,6 +17,8 @@ class BooksController < ApplicationController
 
 	def create
 	  @book = Book.new(book_params)
+		# p GoogleBooks.search(@book.title).first.image_link
+	  @book.update({:cover => GoogleBooks.search(@book.title).first.image_link})
 	 
 	  @book.save
 	  redirect_to books_path
@@ -26,6 +28,14 @@ class BooksController < ApplicationController
 	  @book = Book.find(params[:id])
 	 
 	  @book.update(book_params)
+	  @book.update({:cover => GoogleBooks.search(@book.title).first.image_link})
+	  redirect_to books_path
+	end
+
+	def destroy
+	  @book = Book.find(params[:id])
+	  @book.destroy
+	 
 	  redirect_to books_path
 	end
 	 

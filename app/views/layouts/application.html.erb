@@ -1,14 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>BookTracker</title>
+  <title>Bookmark</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<div class="content">
 
-<%= yield %>
+	<section class="hero">
+		<div class="book-nav">
+			<a class="btn btn-default" href="<%= books_path %>">Home</a>
+			<a class="btn btn-default" href="<%= new_book_path %>">Add New Book</a>
+		</div>
+	</section>
+	<div class="hero-smokescreen">
+	</div>
+	<div class="logo"><a href="<%= books_path %>"><img src="/bookmark-logo.png" width="50%"></a></div>
 
+	<%= yield %>
+
+	<footer>
+		Made with <i class="fa fa-heart"></i> by <br/>
+		Dize 
+	</footer>
+</div>
 </body>
 </html>
